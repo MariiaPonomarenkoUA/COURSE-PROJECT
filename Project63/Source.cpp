@@ -1,6 +1,8 @@
-ï»¿#include <iostream>
+#include <iostream>
 #include <string>
 #include <fstream>
+//#include <Windows.h>
+
 using namespace std;
 
 struct Date
@@ -42,17 +44,6 @@ struct Employee
 		cout << "Name: " << name << "\nSurname: " << surname << "\nSex: " << sex << "\nPost: " << post << "\nDepartment: " << department << "\nNumber: " << number << endl;
 		cout << "Hiring: " << hiring.year << "/" << hiring.month << "/" << hiring.day << "\nFiring: " << firing.year << "/" << firing.month << "/" << firing.day << endl;
 		cout << "=================================================" << endl;
-
-		//cout << name << "\t" << surname << "\t" << sex << "\t" << post << "\t" << department << "\t" << number << "\t" << hiring.year << "/" << hiring.month << "/" << hiring.day << "\t" << firing.year << "/" << firing.month << "/" << firing.day << endl;
-
-		//cout << "Name: " << Employee_list[0].name << endl;
-//cout << "Surname: " << Employee_list[0].surname << endl;
-//cout << "Sex: " << Employee_list[0].sex << endl;
-//cout << "Post: " << Employee_list[0].post << endl;
-//cout << "Department: " << Employee_list[0].department << endl;
-//cout << "Number: " << Employee_list[0].number << endl;
-//cout << "Hiring: " << Employee_list[0].hiring.year << "/" << Employee_list[0].hiring.month << "/" << Employee_list[0].hiring.day << endl;
-//cout << "Firing: " << Employee_list[0].firing.year << "/" << Employee_list[0].firing.month << "/" << Employee_list[0].firing.day << endl;
 	}
 };
 
@@ -67,26 +58,58 @@ int MaxDeptLenghtCounter(Employee *Employee_list, int counter, string path);
 int main()
 {
 	int counter = 0;
-	
 	string path = "Employees.txt";
+	int exit = false;
+	int choise = 0;
 
 	counter = CounterOfRows(path);
-	cout << "TEST Counter " << counter << endl;
-
 	Employee *Employee_list = new Employee[counter];
-
 	Fill(Employee_list, counter, path);
-	ShowEmployeeList(Employee_list, counter, path);
+	cout << "++++++++++++++++++++ WELCOME TO ACCOUNTANT.TIMESHEET.0.1 - DEMO VERSION ++++++++++++++++++++" << endl;
+	cout << "\nThe Software Product is protected by copyright laws and international treaty provisions." << endl;
+	cout << "____________________________________________________________________________________________" << endl << endl;
+
+	for (int i = 0; exit == false; i++)
+	{
+		cout << "Show database of employees - 1\nEdit the database of employees - 2\nShow timeshit - 3\nWorking time statistics - 4\nFind employee data 5\nClear the screen - 9\nExit - 0" << endl << endl;
+		cin >> choise;
+		switch (choise)
+		{
+		case 1:
+			system("cls");
+			ShowEmployeeList(Employee_list, counter, path);
+			cout << "\nPress any key to continue..." << endl;
+			cin.ignore(cin.rdbuf()->in_avail());
+			cin.get();
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		case 5:
+			break;
+		case 9:
+			system("cls");
+			break;
+		case 0:
+			system("cls");
+			cout << "Good bye!" << endl << endl;
+			exit = true;
+			break;
+		default:
+			cout << "ERROR. Wrong choise, try again" << endl;
+			break;
+		}
+	}
 
 
-	
-	
 
-	cout << "TEST " << strlen("Name") << endl;
-	//cout << strlen(Employee_list[0].name) << "!!!" << endl;
-	//cout << strlen(Employee_list[1].name) << "!!!" << endl;
-	//cout << strlen(Employee_list[2].name) << "!!!" << endl;
-	//cout << strlen(Employee_list[3].name) << "!!!" << endl;
+
+
+
+
 
 
 
@@ -103,9 +126,9 @@ int CounterOfRows(string path) //counter of employees, employer=row
 	int counter = 0;
 	readFile.open(path);
 	string data;
-	while (!readFile.eof()) //eof - Ð¾Ñ‡Ñ–ÐºÑƒÐ²Ð°Ð½Ð½Ñ ÐºÑ–Ð½Ñ†Ñ Ñ„Ð°Ð¹Ð»Ð°
+	while (!readFile.eof()) //eof - î÷³êóâàííÿ ê³íöÿ ôàéëà
 	{
-		getline(readFile, data); //Ð·Ñ‡Ð¸Ñ‚ÑƒÐ²Ð°Ð½Ð½Ñ Ñ€ÑÐ´ÐºÐ°Ð¼Ð¸
+		getline(readFile, data); //ç÷èòóâàííÿ ðÿäêàìè
 		counter++;
 	}
 	return counter;
@@ -125,14 +148,8 @@ void Fill(Employee *Employee_list, int counter, string path) // write elements f
 	}
 	else
 	{
-
-		/*for (int j = 0; j < counter; j++)
-		{*/
-
-		cout << "OPEN!" << endl;
-		/*bool c1 = false, c2 = false, c3 = false, c4 = false, c5 = false, c6 = false, c7 = false, c8 = false, c9 = false, c10 = false, c11 = false, c12 = false;*/
 		int tmp = 0;
-		while (readFile.get(data_c))   //Ð¿Ð¾ÑÐ¸Ð¼Ð²Ð¾Ð»ÑŒÐ½Ðµ Ð·Ñ‡Ð¸Ñ‚ÑƒÐ²Ð°Ð½Ð½Ñ
+		while (readFile.get(data_c))   //ïîñèìâîëüíå ç÷èòóâàííÿ
 		{
 			if (int(data_c) != 47 && int(data_c) != 10 && tmp == 0) //write name
 			{
@@ -311,99 +328,99 @@ void Fill(Employee *Employee_list, int counter, string path) // write elements f
 void ShowEmployeeList(Employee *Employee_list, int counter, string path)
 {
 	int nameL = 0, surnameL = 0, postL = 0, deptL = 0; //helper for a build normal tables
-	nameL = MaxNameLenghtCounter(Employee_list, counter, path); 
+	nameL = MaxNameLenghtCounter(Employee_list, counter, path);
 	surnameL = MaxSurnameLenghtCounter(Employee_list, counter, path);
 	postL = MaxPostLenghtCounter(Employee_list, counter, path);
 	deptL = MaxDeptLenghtCounter(Employee_list, counter, path);
 
-		cout << "Name";
-		for (int i = 0; i < (nameL - strlen("Name")); i++)
-		{
-			cout << " ";
-		}
-		cout << "\tSurname";
-		for (int i = 0; i < (surnameL - strlen("Surname")); i++)
-		{
-			cout << " ";
-		}
-		cout << "\tSex\tPost";
-		for (int i = 0; i < (postL - strlen("Post")); i++)
-		{
-			cout << " ";
-		}
-		cout << "\tDepartment";
-		for (int i = 0; i < (deptL - strlen("Department")); i++)
-		{
-			cout << " ";
-		}
-		cout << "\tNumber\tHiring";
-		for (int i = 0; i < 4 ; i++)
-		{
-			cout << " ";
-		}
-		cout << "\tFiring";
-		for (int i = 0; i < 4; i++)
-		{
-			cout << " ";
-		}
-
-		for (int i = 0; i < counter; i++)
-		{
-			cout << Employee_list[i].name;
-			for (int j = 0; j < (nameL - strlen(Employee_list[i].name)); j++)
-			{
-				cout << " ";
-			}
-			cout << "\t" << Employee_list[i].surname;
-			for (int j = 0; j < (surnameL - strlen(Employee_list[i].surname)); j++)
-			{
-				cout << " ";
-			}
-			cout << "\t" << Employee_list[i].sex << "\t" << Employee_list[i].post;
-			for (int j = 0; j < (postL - strlen(Employee_list[i].post)); j++)
-			{
-				cout << " ";
-			}
-
-			cout << "\t" << Employee_list[i].department;
-			for (int j = 0; j < (deptL - strlen(Employee_list[i].department)); j++)
-			{
-				cout << " ";
-			}
-			cout << "\tNumber\tHiring";
-			for (int i = 0; i < 4; i++)
-			{
-				cout << " ";
-			}
-			cout << "\tFiring";
-			for (int i = 0; i < 4; i++)
-			{
-				cout << " ";
-			}
-
-			//cout << Employee_list[i].name << "\t" << Employee_list[i].surname << "\t" << sex << "\t" << post << "\t" << department << "\t" << number << "\t" << hiring.year << "/" << hiring.month << "/" << hiring.day << "\t" << firing.year << "/" << firing.month << "/"
-		}
-
-		//cout << name << "\t" << surname << "\t" << sex << "\t" << post << "\t" << department << "\t" << number << "\t" << hiring.year << "/" << hiring.month << "/" << hiring.day << "\t" << firing.year << "/" << firing.month << "/" << firing.day << endl;
-
-
-		//cout << "Name: " << Employee_list[0].name;
-
-		//cout << "Surname: " << Employee_list[0].surname << endl;
-		//cout << "Sex: " << Employee_list[0].sex << endl;
-		//cout << "Post: " << Employee_list[0].post << endl;
-		//cout << "Department: " << Employee_list[0].department << endl;
-		//cout << "Number: " << Employee_list[0].number << endl;
-		//cout << "Hiring: " << Employee_list[0].hiring.year << "/" << Employee_list[0].hiring.month << "/" << Employee_list[0].hiring.day << endl;
-		//cout << "Firing: " << Employee_list[0].firing.year << "/" << Employee_list[0].firing.month << "/" << Employee_list[0].firing.day << endl;
-
-
-		/*Employee_list[i].ShowEmployeeInfo();*/
+	cout << "Name";
+	for (int i = 0; i < (nameL - strlen("Name")); i++)
+	{
+		cout << " ";
+	}
+	cout << "\tSurname";
+	for (int i = 0; i < (surnameL - strlen("Surname")); i++)
+	{
+		cout << " ";
+	}
+	cout << "\t\tSex\tPost";
+	for (int i = 0; i < (postL - strlen("Post")); i++)
+	{
+		cout << " ";
+	}
+	cout << "\tDepartment";
+	for (int i = 0; i < (deptL - strlen("Department")); i++)
+	{
+		cout << " ";
+	}
+	cout << "\tNumber\tHiring";
+	for (int i = 0; i < 4; i++)
+	{
+		cout << " ";
 	}
 
+	cout << "\tFiring";
+	for (int i = 0; i < 4; i++)
+	{
+		cout << " ";
+	}
+
+	cout << "\n" << endl;
+	for (int i = 0; i < counter; i++)
+	{
+		cout << Employee_list[i].name;
+		for (int j = 0; j < (nameL - strlen(Employee_list[i].name)); j++)
+		{
+			cout << " ";
+		}
+		cout << "\t" << Employee_list[i].surname;
+		for (int j = 0; j < (surnameL - strlen(Employee_list[i].surname)); j++)
+		{
+			cout << " ";
+		}
+		cout << "\t\t" << Employee_list[i].sex << "\t" << Employee_list[i].post;
+		for (int j = 0; j < (postL - strlen(Employee_list[i].post)); j++)
+		{
+			cout << " ";
+		}
+
+		cout << "\t" << Employee_list[i].department;
+		for (int j = 0; j < (deptL - strlen(Employee_list[i].department)); j++)
+		{
+			cout << " ";
+		}
+
+		cout << "\t" << Employee_list[i].number;
+		//for (int j = 0; j < (4 - strlen(Employee_list[i].number)); j++)
+		//{
+		//	cout << " ";
+		//}
+
+		cout << "\t" << Employee_list[i].hiring.year << "/" << Employee_list[i].hiring.month << "/" << Employee_list[i].hiring.day;
+		for (int j = 0; j < 4; j++)
+		{
+			cout << " ";
+		}
+		cout << "\t" << Employee_list[i].firing.year << "/" << Employee_list[i].firing.month << "/" << Employee_list[i].firing.day << endl;
+
+	}
+	cout << endl;
+
+	//cout << name << "\t" << surname << "\t" << sex << "\t" << post << "\t" << department << "\t" << number << "\t" << hiring.year << "/" << hiring.month << "/" << hiring.day << "\t" << firing.year << "/" << firing.month << "/" << firing.day << endl;
+	//cout << "Name: " << Employee_list[0].name;
+	//cout << "Surname: " << Employee_list[0].surname << endl;
+	//cout << "Sex: " << Employee_list[0].sex << endl;
+	//cout << "Post: " << Employee_list[0].post << endl;
+	//cout << "Department: " << Employee_list[0].department << endl;
+	//cout << "Number: " << Employee_list[0].number << endl;
+	//cout << "Hiring: " << Employee_list[0].hiring.year << "/" << Employee_list[0].hiring.month << "/" << Employee_list[0].hiring.day << endl;
+	//cout << "Firing: " << Employee_list[0].firing.year << "/" << Employee_list[0].firing.month << "/" << Employee_list[0].firing.day << endl;
+
+	/*Employee_list[i].ShowEmployeeInfo();*/
+}
 
 int MaxNameLenghtCounter(Employee *Employee_list, int counter, string path)
-{	
+{
 	int max = strlen("Name");
 	for (int i = 0; i < counter; i++)
 	{
@@ -417,7 +434,7 @@ int MaxNameLenghtCounter(Employee *Employee_list, int counter, string path)
 
 int MaxSurnameLenghtCounter(Employee *Employee_list, int counter, string path)
 {
-	int max = strlen ("Surname");
+	int max = strlen("Surname");
 	for (int i = 0; i < counter; i++)
 	{
 		if (strlen(Employee_list[i].surname) >= max)
@@ -443,7 +460,7 @@ int MaxPostLenghtCounter(Employee *Employee_list, int counter, string path)
 
 int MaxDeptLenghtCounter(Employee *Employee_list, int counter, string path)
 {
-	int max = strlen ("Department");
+	int max = strlen("Department");
 	for (int i = 0; i < counter; i++)
 	{
 		if (strlen(Employee_list[i].department) >= max)

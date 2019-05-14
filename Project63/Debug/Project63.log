@@ -1,10 +1,14 @@
 ﻿  Source.cpp
-c:\users\ponomarenko\source\repos\project63\project63\source.cpp(320): warning C4018: '<=': signed/unsigned mismatch
-c:\users\ponomarenko\source\repos\project63\project63\source.cpp(325): warning C4018: '<': signed/unsigned mismatch
-c:\users\ponomarenko\source\repos\project63\project63\source.cpp(330): warning C4018: '<': signed/unsigned mismatch
-c:\users\ponomarenko\source\repos\project63\project63\source.cpp(335): warning C4018: '<': signed/unsigned mismatch
-c:\users\ponomarenko\source\repos\project63\project63\source.cpp(373): warning C4018: '>=': signed/unsigned mismatch
-c:\users\ponomarenko\source\repos\project63\project63\source.cpp(386): warning C4018: '>=': signed/unsigned mismatch
-c:\users\ponomarenko\source\repos\project63\project63\source.cpp(399): warning C4018: '>=': signed/unsigned mismatch
-c:\users\ponomarenko\source\repos\project63\project63\source.cpp(412): warning C4018: '>=': signed/unsigned mismatch
-  Project63.vcxproj -> C:\Users\ponomarenko\source\repos\Project63\Debug\Project63.exe
+c:\users\маша\source\repos\project63\project63\source.cpp(337): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\маша\source\repos\project63\project63\source.cpp(342): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\маша\source\repos\project63\project63\source.cpp(347): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\маша\source\repos\project63\project63\source.cpp(352): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\маша\source\repos\project63\project63\source.cpp(372): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\маша\source\repos\project63\project63\source.cpp(377): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\маша\source\repos\project63\project63\source.cpp(382): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\маша\source\repos\project63\project63\source.cpp(388): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\маша\source\repos\project63\project63\source.cpp(427): warning C4018: >=: несоответствие типов со знаком и без знака
+c:\users\маша\source\repos\project63\project63\source.cpp(440): warning C4018: >=: несоответствие типов со знаком и без знака
+c:\users\маша\source\repos\project63\project63\source.cpp(453): warning C4018: >=: несоответствие типов со знаком и без знака
+c:\users\маша\source\repos\project63\project63\source.cpp(466): warning C4018: >=: несоответствие типов со знаком и без знака
+  Project63.vcxproj -> C:\Users\Маша\source\repos\Project63\Debug\Project63.exe
