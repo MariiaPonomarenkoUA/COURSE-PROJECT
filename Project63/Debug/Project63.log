@@ -1,0 +1,10 @@
+﻿  Source.cpp
+c:\users\ponomarenko\source\repos\project63\project63\source.cpp(320): warning C4018: '<=': signed/unsigned mismatch
+c:\users\ponomarenko\source\repos\project63\project63\source.cpp(325): warning C4018: '<': signed/unsigned mismatch
+c:\users\ponomarenko\source\repos\project63\project63\source.cpp(330): warning C4018: '<': signed/unsigned mismatch
+c:\users\ponomarenko\source\repos\project63\project63\source.cpp(335): warning C4018: '<': signed/unsigned mismatch
+c:\users\ponomarenko\source\repos\project63\project63\source.cpp(373): warning C4018: '>=': signed/unsigned mismatch
+c:\users\ponomarenko\source\repos\project63\project63\source.cpp(386): warning C4018: '>=': signed/unsigned mismatch
+c:\users\ponomarenko\source\repos\project63\project63\source.cpp(399): warning C4018: '>=': signed/unsigned mismatch
+c:\users\ponomarenko\source\repos\project63\project63\source.cpp(412): warning C4018: '>=': signed/unsigned mismatch
+  Project63.vcxproj -> C:\Users\ponomarenko\source\repos\Project63\Debug\Project63.exe

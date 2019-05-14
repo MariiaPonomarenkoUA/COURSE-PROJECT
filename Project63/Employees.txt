@@ -1,0 +1,10 @@
+Alicia/Burn/f/General director/Direction/1/2018/1/5////
+Gordon/Smith/m/Chief Sales Manager/Sales Dept/2/2018/1/10////
+Carol/Lee/f/Finance manager/Finance Dept/3/2018/1/10////
+Donnie/Brasko/m/Accountant/Finance Dept/4/2018/1/15////
+Samantha/Roll/f/IT manager/IT Dept/5/2018/1/21////
+Tom/Pitt/f/Programming engineer/IT Dept/6/2018/1/21////
+Alex/White/f/CRM and Data Manager/IT Dept/7/2018/1/21////
+Tailor/Smith/f/Software Developer/IT Dept/8/2018/1/22////
+Bill/Baker/m/Seller/Sales Dept/9/2018/4/1////
+Bobby/Axelrod/f/Seller/Sales Dept/10/2018/4/15////
